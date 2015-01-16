@@ -1,23 +1,45 @@
 # development tasks
 alias g="git"
-alias gc="git checkout"
+alias ga="git add"
+alias gc='git commit'
+alias go="git checkout"
 alias gs="git status"
-alias gb="git checkout -b"
+alias gb="git branch"
 alias gd="git diff"
 alias gp="git pull"
+alias gpm="git pull origin master"
 alias gf="git fetch"
 alias grh="git reset head --hard"
+alias gg="git push"
+alias ggo="git push origin"
+alias gr="git remote -v"
 alias b='bundle'
 alias be='bundle exec'
 alias rs='bundle exec rspec'
 alias guard='title GUARD ${PWD##*/}; bundle exec guard && wait $!; title Console'
 alias evergreen="be rails s -p 4000"
 alias dj="be rake jobs:clear jobs:work"
+alias sspdf="be fuji_pdf_server start"
 
 # Directory Nav
 alias ..="cd .."
 alias ...="cd ../.."
-alias dev="cd ~/dev"
+alias dot="cd ~/dotfiles"
+alias tools="cd ~/tools"
+alias dev="cd ~/development"
+
+# enable autocomplete support for git aliases
+__git_complete g _git_main
+__git_complete ga _git_add
+__git_complete gc _git_commit
+__git_complete go _git_checkout
+__git_complete gs _git_status
+__git_complete gb _git_branch
+__git_complete gd _git_diff
+__git_complete gp _git_pull
+__git_complete gf _git_fetch
+__git_complete gg _git_push
+__git_complete ggo _git_push
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -33,6 +55,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -alF'
+alias lla='ls -la'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -53,6 +76,7 @@ FG_RED='\[\033[0;31m\]'
 FG_GREEN='\[\033[0;32m\]'
 FG_YELLOW='\[\033[0;33m\]'
 FG_BLUE='\[\033[0;34m\]'
+FG_CYAN='\[\033[0;36m\]'
 FG_PURPLE='\[\033[0;35m\]'
 FG_TEAL='\[\033[0;36m\]'
 FG_WHITE='\[\033[0;37m\]'
@@ -116,6 +140,32 @@ function get_branch_status {
     echo -e "$GIT_DIRTY"
   fi
 }
+
+function parse_git_branch {
+  git rev-parse --git-dir &> /dev/null
+  git_status="$(git status 2> /dev/null)"
+  branch_pattern="^# On branch ([^${IFS}]*)"
+  ahead_pattern="# Your branch is ahead of"
+  behind_pattern="# Your branch is behind"
+  staged_pattern="# Changes to be committed"
+  unstaged_pattern="# Changes not staged for commit"
+  untracked_pattern="# Untracked files"
+  diverge_pattern="# Your branch and (.*) have diverged"
+
+  if [[ ${git_status}} =~ ${staged_pattern} ]];     then state+="${FG_YELLOW}*"; fi
+  if [[ ${git_status}} =~ ${unstaged_pattern} ]];   then state+="${FG_GREEN}*"; fi
+  if [[ ${git_status}} =~ ${untracked_pattern} ]];  then state+="${FG_CYAN}*"; fi
+
+  if   [[ ${git_status} =~ ${ahead_pattern} ]];     then remote="${FG_CYAN}↑"
+  elif [[ ${git_status} =~ ${behind_pattern} ]];    then remote="${FG_CYAN}↓"
+  elif [[ ${git_status} =~ ${diverge_pattern} ]];   then remote="${FG_RED}↕"; fi
+
+  if [[ ${git_status} =~ ${branch_pattern} ]]; then
+    branch=${BASH_REMATCH[1]}
+    echo "$FG_YELLOW:$branch$remote$state"
+  fi
+}
+
 
 # Set the prompt according to which repo the current dir is in - if any
 function set_prompt {

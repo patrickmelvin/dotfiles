@@ -6,12 +6,12 @@ These are my dotfiles for my bash profile, aliases and vim plugins. If you wish 
 Usage
 ========
 
-##Clone into ~/dotfiles/
+## Clone into ~/dotfiles/
 
 * `cd ~/`
-* `git clone git@github.com:adamgeorgeson/dotfiles.git`
+* `git clone @github.com:patrickmelvin/dotfiles.git`
 
-##Then add symlinks in your ~/ directory
+## Then add symlinks in your ~/ directory
 
 * `cd ~/`
 * `ln -nfs ~/dotfiles/vim/ .vim`
@@ -19,6 +19,12 @@ Usage
 * `ln -nfs ~/dotfiles/bash_profile .bash_profile`
 * `ln -nfs ~/dotfiles/bash_aliases .bash_aliases`
 * `ln -nfs ~/dotfiles/gitconfig .gitconfig`
+
+## Link hooks to your .git directory
+
+* `cd ~/.git`
+* `rm -R hooks`
+* `ln -nfs ~/dotfiles/hooks hooks`
 
 ## Install Plugins
 

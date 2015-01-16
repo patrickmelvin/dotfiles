@@ -1,8 +1,8 @@
-[adam]
- georgeson = Adam Georgeson
+[patrick]
+ melvin = Patrick Melvin
 [user]
-  name = Adam Georgeson
-  email = adam.georgeson@sage.com
+  name = Patrick Melvin
+  email = patrick.melvin@sage.com
 [alias]
   st = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -39,4 +39,5 @@
 [merge]
 	tool = Kaleidoscope
 [core]
-	excludesfile = /Users/adamgeorgeson/.gitignore
+  excludesfile = /Users/patrickmelvin/.gitignore
+  whitespace = trailing-space,space-before-tab
