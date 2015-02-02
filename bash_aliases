@@ -41,6 +41,12 @@ __git_complete gf _git_fetch
 __git_complete gg _git_push
 __git_complete ggo _git_push
 
+# Open git readme files if they exist in browser
+if [ -e README.md ]
+  then
+    alias readme='open -a "Google Chrome" README.md'
+fi
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -83,10 +89,10 @@ FG_WHITE='\[\033[0;37m\]'
 FG_ORANGE='\[\033[0;214m\]'
 NO_COLOUR='\[\033[0m\]'
 
-PS1_TIME='\[\033[48;5;0m\033[38;5;250m\]'
+PS1_TIME='\[\033[48;5;0m\033[38;30;250m\]'
 PS1_PATH='\[\033[0;38;5;12m\]'
 PS1_MARKER="$FG_ORANGE"
-GIT_LABEL='\[\033[48;5;234m\033[38;5;214m\]'
+GIT_LABEL='\[\033[48;5;234m\033[38;5,240m\]'
 GIT_JOIN='\[\033[48;5;179m\033[38;5;30m\]'
 GIT_BRANCH='\[\033[48;5;245m\033[38;5;234m\]'
 GIT_CLEAN='\[\033[48;5;22m\]'
