@@ -3,7 +3,7 @@ alias g="git"
 alias ga="git add"
 alias gc='git commit'
 alias go="git checkout"
-alias gs="git status"
+alias gs="git status -sb"
 alias gb="git branch"
 alias gd="git diff"
 alias gp="git pull"
@@ -46,6 +46,10 @@ if [ -e README.md ]
   then
     alias readme='open -a "Google Chrome" README.md'
 fi
+
+#Open programs
+alias chrome='open -a "Google Chrome"'
+alias sublime='open -a "Sublime Text 2"'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

@@ -26,6 +26,7 @@ eval "$(rbenv init -)"
 export CC=/usr/local/bin/gcc-4.2
 export CXX=/usr/local/bin/g++-4.2
 export PATH=/usr/local/bin:$HOME/bin:$PATH
+export PATH=$HOME/tools/bin:$PATH
 
 function github {
   branch="$(git rev-parse --abbrev-ref HEAD)"
