@@ -28,6 +28,10 @@ alias dot="cd ~/dotfiles"
 alias tools="cd ~/tools"
 alias dev="cd ~/development"
 
+# Bash & Vim
+alias bashe="vim ~/.bash_aliases"
+alias vime="vim ~/.vimrc"
+
 # enable autocomplete support for git aliases
 __git_complete g _git_main
 __git_complete ga _git_add
