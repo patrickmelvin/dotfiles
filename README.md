@@ -17,14 +17,8 @@ Usage
 * `ln -nfs ~/dotfiles/vim/ .vim`
 * `ln -nfs ~/dotfiles/vimrc .vimrc`
 * `ln -nfs ~/dotfiles/bash_profile .bash_profile`
-* `ln -nfs ~/dotfiles/bash_aliases .bash_aliases`
+* `ln -nfs ~/dotfiles/bash .bash`
 * `ln -nfs ~/dotfiles/gitconfig .gitconfig`
-
-## Link hooks to your .git directory
-
-* `cd ~/.git`
-* `rm -R hooks`
-* `ln -nfs ~/dotfiles/hooks hooks`
 
 ## Install Plugins
 
