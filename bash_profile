@@ -4,6 +4,10 @@ export EDITOR='vim'
 export no_proxy=127.0.0.1 # Proxy fix for Rspec
 export DEFERRED_GARBAGE_COLLECTION=true
 
+if [ -f ~/.bash/git-completion.bash ]; then
+  . ~/.bash/git-completion.bash
+fi
+
 if [ -f ~/.bash/path ]; then
   . ~/.bash/path
 fi
