@@ -11,11 +11,11 @@
   diff = auto
   status = auto
 [color "branch"]
-  current = yellow reverse
-  local = yellow
+  current = cyan reverse
+  local = cyan
   remote = green
 [color "diff"]
-  meta = yellow bold
+  meta = cyan bold
   frag = magenta bold
   old = red bold
   new = green bold
