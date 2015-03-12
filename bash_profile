@@ -1,10 +1,16 @@
 #export http_proxy="http://lon1.sme.zscaler.net:80"
 #export https_proxy="http://lon1.sme.zscaler.net:9480"
-source ~/.bash/path
 export EDITOR='vim'
 export no_proxy=127.0.0.1 # Proxy fix for Rspec
 export DEFERRED_GARBAGE_COLLECTION=true
-source ~/.bash/git-completion.bash
+
+if [ -f ~/.bash/path ]; then
+  . ~/.bash/path
+fi
+
+if [ -f ~/.bash/prompt ]; then
+  . ~/.bash/prompt
+fi
 
 if [ -f ~/.bash/bash_aliases ]; then
   . ~/.bash/bash_aliases
