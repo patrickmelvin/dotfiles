@@ -21,12 +21,36 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-endwise'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'vitaly/vim-syntastic-coffee'
+Plugin 'SirVer/ultisnips'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+Plugin 'stefanoverna/vim-i18n'
+Plugin 'gabrielelana/vim-markdown'
+Plugin 'avakhov/vim-yaml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Make those debugger statements painfully obvious
+au BufEnter *.rb syn match error contained "\<binding.pry\>"
+au BufEnter *.rb syn match error contained "\<debugger\>"
 syntax on
+
+" Enable ctrlP
+hi def link CtrlPMatch CursorLine
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|Android',
+  \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
+  \ }
+nnoremap <C-b> :CtrlPBuffer<cr>
+" CtrlP Delete
+" call ctrlp_bdelete#init()
+" " CtrlP Funky
+" let g:ctrlp_extensions = [‘funky']
+" let g:ctrlp_funky_multi_buffers = 1
 
 set t_Co=256
 set background=dark
