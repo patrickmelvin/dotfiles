@@ -149,6 +149,10 @@ au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Rakefile set filetype=ruby
 au BufNewFile,BufRead Fudgefile set filetype=ruby
 
+" Strip trailing whitespace on save
+let blacklist=['coffee']
+autocmd BufWritePre * if index(blacklist, &ft) < 0 | :%s/\s\+$//e
+
 function! InsertDebugger()
   if(&filetype == 'ruby')
     :normal orequire 'pry'; binding.pry
