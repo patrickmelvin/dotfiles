@@ -8,17 +8,17 @@ Usage
 
 ## Clone into ~/dotfiles/
 
-* `cd ~/`
-* `git clone @github.com:patrickmelvin/dotfiles.git`
+* `$ cd ~/`
+* `$ git clone @github.com:patrickmelvin/dotfiles.git`
 
 ## Then add symlinks in your ~/ directory
 
-* `cd ~/`
-* `ln -nfs ~/dotfiles/vim/ .vim`
-* `ln -nfs ~/dotfiles/vimrc .vimrc`
-* `ln -nfs ~/dotfiles/bash_profile .bash_profile`
-* `ln -nfs ~/dotfiles/bash .bash`
-* `ln -nfs ~/dotfiles/gitconfig .gitconfig`
+* `$ cd ~/`
+* `$ ln -nfs ~/dotfiles/vim/ .vim`
+* `$ ln -nfs ~/dotfiles/vimrc .vimrc`
+* `$ ln -nfs ~/dotfiles/bash_profile .bash_profile`
+* `$ ln -nfs ~/dotfiles/bash .bash`
+* `$ ln -nfs ~/dotfiles/gitconfig .gitconfig`
 
 ## Install Plugins
 
