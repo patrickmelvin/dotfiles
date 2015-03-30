@@ -30,21 +30,16 @@ Usage
 Plugins
 ========
 
-### Navigation
+### Aesthetic
 
-* [NerdTREE](https://github.com/scrooloose/nerdtree) - A tree explorer plugin for vim.
-* [ctrl-p](https://github.com/kien/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder.
-
-### Asthetic
-
-* [Badwolf](https://github.com/sjl/badwolf) - A Vim color scheme.
 * [vim-airline](https://github.com/bling/vim-airline) - lean & mean status/tabline for vim that's light as air.
+* [Badwolf](https://github.com/sjl/badwolf) - A Vim color scheme.
 
 ### Code Completion
 
-* [UltiSnips](https://github.com/SirVer/ultisnips.git) - Syntax completion for vim.
-* [vim-snippets](https://github.com/honza/vim-snippets.git) - A repository for snippets of various languages.
 * [vim-endwise](https://github.com/tpope/vim-endwise) - Wisely add "end" in ruby, endfunction/endif/more in vim script, etc.
+* [vim-snippets](https://github.com/honza/vim-snippets.git) - A repository for snippets of various languages.
+* [UltiSnips](https://github.com/SirVer/ultisnips.git) - Syntax completion for vim.
 
 ### Compatibility
 
@@ -57,13 +52,17 @@ Plugins
 * [vim-rails](https://github.com/tpope/vim-rails) - Ruby on Rails power tools.
 * [vim-yaml](https://github.com/avakhov/vim-yaml.git) - Automatic indenting for yaml files.
 
-
 ### Misc
 
+* [tcomment_vim](https://github.com/tomtom/tcomment_vim) - An extensible & universal comment vim-plugin that also handles embedded filetypes.
 * [vim-fugitive](https://github.com/tpope/vim-fugitive.git) - Vim-accessible git wrapper.
 * [vim-i18n](https://github.com/stefanoverna/vim-i18n.git) - Create i18n translations with a function call.
+* [vim-rspec](https://github.com/thoughtbot/vim-rspec) - Run Rspec specs from Vim.
 * [vim-surround](https://github.com/tpope/vim-surround.git) - Quoting/parenthesizing plugin.
 * [Syntastic](https://github.com/scrooloose/syntastic) - Syntax checking hacks for vim.
 * [Syntastic-Coffee](https://github.com/vitaly/vim-syntastic-coffee.git) - Coffeescript support for Syntastic.
-* [tcomment_vim](https://github.com/tomtom/tcomment_vim) - An extensible & universal comment vim-plugin that also handles embedded filetypes.
-* [vim-rspec](https://github.com/thoughtbot/vim-rspec) - Run Rspec specs from Vim.
+
+### Navigation
+
+* [ctrl-p](https://github.com/kien/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder.
+* [NerdTREE](https://github.com/scrooloose/nerdtree) - A tree explorer plugin for vim.
