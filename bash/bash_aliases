@@ -32,6 +32,7 @@ alias dev="cd ~/development"
 alias bashp="vim ~/.bash_profile"
 alias bashe="vim ~/.bash/bash_aliases"
 alias vime="vim ~/.vimrc"
+alias bashs="source ~/.bash_profile"
 
 # enable autocomplete support for git aliases
 __git_complete g _git_main
