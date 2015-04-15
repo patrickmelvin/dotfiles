@@ -41,3 +41,7 @@
 [core]
   excludesfile = /Users/patrickmelvin/.gitignore
   whitespace = trailing-space,space-before-tab
+[git-up "bundler"]
+  autoinstall = true
+[git-up "fetch"]
+  prune = false
