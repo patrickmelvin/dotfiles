@@ -119,6 +119,9 @@ set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
 
+" Set wrapping on gitcommit messages to 72 characters
+au Filetype gitcommit set tw=72
+
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
 set completeopt=longest,menu
@@ -133,6 +136,7 @@ set lcs=eol:¬
 
 " Map leader to ,
 map , \
+set timeoutlen=2000
 
 " VIM-Rspec
 let g:rspec_command = "!bundle exec rspec -I . {spec}"
