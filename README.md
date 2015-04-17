@@ -33,7 +33,8 @@ Plugins
 ### Aesthetic
 
 * [vim-airline](https://github.com/bling/vim-airline) - lean & mean status/tabline for vim that's light as air.
-* [Badwolf](https://github.com/sjl/badwolf) - A Vim color scheme.
+* [Badwolf](https://github.com/sjl/badwolf) - A Vim colour scheme.
+* [Gruvbox](https://github.com/morhetz/gruvbox) - A Vim colour scheme.
 
 ### Code Completion
 

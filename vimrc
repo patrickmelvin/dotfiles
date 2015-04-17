@@ -13,6 +13,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'sjl/badwolf'
+Plugin 'morhetz/gruvbox'
 Plugin 'thoughtbot/vim-rspec'
 "Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-fugitive'
@@ -62,7 +63,7 @@ nnoremap <C-b> :CtrlPBuffer<cr>
 
 set t_Co=256
 set background=dark
-colorscheme badwolf
+colorscheme gruvbox
 let g:airline#extensions#tabline#enabled = 1  " Automatically displays all buffers when there's only one tab open
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
