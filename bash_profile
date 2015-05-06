@@ -45,3 +45,12 @@ function github {
 
         echo "Opening ${url} $(\open ${url})"
 }
+
+newtab() {
+  COMMAND=$1
+  osascript \
+    -e "tell application \"Terminal\"" \
+    -e "tell application \"System Events\" to keystroke \"t\" using {command down}" \
+    -e "do script \"$COMMAND\" in front window" \
+    -e "end tell" > /dev/null
+}
