@@ -45,3 +45,5 @@
   autoinstall = true
 [git-up "fetch"]
   prune = false
+[init]
+  templatedir = ~/.git_template
