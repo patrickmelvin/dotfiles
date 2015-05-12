@@ -21,7 +21,11 @@ alias guard='title GUARD ${PWD##*/}; bundle exec guard && wait $!; title Console
 alias evergreen="be rails s -p 4000"
 alias dj="be rake jobs:clear jobs:work"
 alias sspdf="be fuji_pdf_server start"
-alias fudge="bundle exec fudge build | fpp"
+
+# Fudge
+alias fudge="bundle exec fudge build"
+alias fudgep="bundle exec fudge build parallel_test"
+alias fudgepp="bundle exec fudge build | fpp"
 
 # Directory Nav
 alias ..="cd .."
