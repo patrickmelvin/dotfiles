@@ -1,4 +1,5 @@
 # development tasks
+alias git="hub"
 alias g="git"
 alias ga="git add"
 alias gc='git commit'
