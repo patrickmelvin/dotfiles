@@ -87,3 +87,7 @@ alias whouses='grep -lir --exclude=\*.svn\* --exclude=\*.swp'
 alias findfile='find . -iname'
 alias inspect='du -csh'
 alias fsearch='git ls-files | grep'
+
+function srt {
+  be rake -T | grep $1
+}
