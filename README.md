@@ -59,7 +59,7 @@ Plugins
 * [vim-fugitive](https://github.com/tpope/vim-fugitive.git) - Vim-accessible git wrapper.
 * [vim-i18n](https://github.com/stefanoverna/vim-i18n.git) - Create i18n translations with a function call.
 * [vim-rspec](https://github.com/thoughtbot/vim-rspec) - Run Rspec specs from Vim.
-* [vim-surround](https://github.com/tpope/vim-surround.git) - Quoting/parenthesizing plugin.
+* [delimitMate](https://github.com/raimondi/delimitmate.git) - Quoting/parenthesizing plugin.
 * [Syntastic](https://github.com/scrooloose/syntastic) - Syntax checking hacks for vim.
 * [Syntastic-Coffee](https://github.com/vitaly/vim-syntastic-coffee.git) - Coffeescript support for Syntastic.
 
