@@ -40,41 +40,9 @@ au BufEnter *.rb syn match error contained "\<binding.pry\>"
 au BufEnter *.rb syn match error contained "\<debugger\>"
 syntax on
 
-" Enable ctrlP
-hi def link CtrlPMatch CursorLine
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|Android',
-  \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
-  \ }
-
-" Untisnips - Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-nnoremap <C-b> :CtrlPBuffer<cr>
-" CtrlP Delete
-" call ctrlp_bdelete#init()
-" " CtrlP Funky
-" let g:ctrlp_extensions = [‘funky']
-" let g:ctrlp_funky_multi_buffers = 1
-
 set t_Co=256
 set background=dark
 colorscheme gruvbox
-let g:airline#extensions#tabline#enabled = 1  " Automatically displays all buffers when there's only one tab open
-let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#displayed_head_limit = 10
-let g:airline#extensions#syntastic#enabled = 1
-
-autocmd vimenter * NERDTree
-autocmd vimenter * if !argc() | NERDTree | endif
-let NERDTreeShowHidden=1
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -185,3 +153,5 @@ function! s:DiffWithSaved()
 endfunction
 
 com! DiffSaved call s:DiffWithSaved()
+
+so ~/.vim/settings.vim
