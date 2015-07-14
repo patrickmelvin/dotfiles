@@ -82,9 +82,6 @@ set lcs=eol:¬
 map , \
 set timeoutlen=2000
 
-" CTRL + n = remove blank space at the end of lines
-nnoremap <silent> <C-n> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
 " Set file type to Ruby for common files such as ui files and Gemfiles
 au BufRead,BufNewFile *.ui set filetype=ruby
 au BufRead,BufNewFile *.mustache set filetype=javascript
@@ -92,10 +89,6 @@ au BufNewFile,BufRead *.ctp set filetype=html
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Rakefile set filetype=ruby
 au BufNewFile,BufRead Fudgefile set filetype=ruby
-
-" Strip trailing whitespace on save
-let blacklist=['coffee']
-autocmd BufWritePre * if index(blacklist, &ft) < 0 | :%s/\s\+$//e
 
 function! InsertDebugger()
   if(&filetype == 'ruby')
