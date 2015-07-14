@@ -12,9 +12,6 @@ so ~/.vim/plugins.vim
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Make those debugger statements painfully obvious
-au BufEnter *.rb syn match error contained "\<binding.pry\>"
-au BufEnter *.rb syn match error contained "\<debugger\>"
 syntax on
 
 set t_Co=256
@@ -84,9 +81,6 @@ set lcs=eol:¬
 " Map leader to ,
 map , \
 set timeoutlen=2000
-
-" Misc mappings.
-nmap <leader>dd :call InsertDebugger()<CR>
 
 " CTRL + n = remove blank space at the end of lines
 nnoremap <silent> <C-n> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
