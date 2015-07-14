@@ -1,24 +1,15 @@
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'sjl/badwolf'
-Plugin 'morhetz/gruvbox'
-Plugin 'thoughtbot/vim-rspec'
-"Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'tpope/vim-fugitive'
-Plugin 'sjl/vitality.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-endwise'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'vitaly/vim-syntastic-coffee'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-rails'
-"Plugin 'tpope/vim-surround'
-Plugin 'raimondi/delimitmate'
-Plugin 'stefanoverna/vim-i18n'
-Plugin 'gabrielelana/vim-markdown'
-Plugin 'avakhov/vim-yaml'
+let vimsettings = '~/.vim/plugins'
+let uname = system("uname -s")
+
+for fpath in split(globpath(vimsettings, '*.vim'), '\n')
+
+  if (fpath == expand(vimsettings) . "/yadr-keymap-mac.vim") && uname[:4] ==? "linux"
+    continue " skip mac mappings for linux
+  endif
+
+  if (fpath == expand(vimsettings) . "/yadr-keymap-linux.vim") && uname[:4] !=? "linux"
+    continue " skip linux mappings for mac
+  endif
+
+  exe 'source' fpath
+endfor
