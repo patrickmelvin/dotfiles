@@ -79,6 +79,7 @@ fi
 alias ll='ls -alF'
 alias lla='ls -la'
 alias la='ls -A'
+alias lr='ls -rtl'
 alias l='ls -CF'
 
 # search functions
