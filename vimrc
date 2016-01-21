@@ -109,8 +109,18 @@ endfunction
 
 function! ConvertRspec()
   if(&filetype == 'ruby')
-    :%s/\(\s\+\)\(.\+\)\.should/\1expect(\2).to/g
+    " [statement].should  =>  expect([statement]).to
+    :%s/\(\*\)\(.\+\)\.should/\1expect(\2).to/g
+    :%s/\(.\+\)\.should/expect(\1).to/g
+
+    " expect([statement]).to ==  =>  expect([statement]).to eq
     :%s/\(expect.\+\.to \)==/\1eq/g
+
+    " expect[statement].any_instance  =>  expect_any_instance_of[statement]
+    :%s/\(expect\)\(.\+\).any_instance\(.\+\)/\1_any_instance_of\2\3/g
+
+    " allow[statement].any_instance  =>  allow_any_instance_of[statement]
+    :%s/\(allow\)\(.\+\).any_instance\(.\+\)/\1_any_instance_of\2\3/g
   endif
 endfunction
 
