@@ -107,6 +107,12 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 
+function! ConvertRspec()
+  if(&filetype == 'ruby')
+    :%s/\(\s\+\)\(.\+\)\.should/\1expect(\2).to/g
+  endif
+endfunction
+
 com! DiffSaved call s:DiffWithSaved()
 
 so ~/.vim/settings.vim
