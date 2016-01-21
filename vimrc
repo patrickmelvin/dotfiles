@@ -110,6 +110,7 @@ endfunction
 function! ConvertRspec()
   if(&filetype == 'ruby')
     :%s/\(\s\+\)\(.\+\)\.should/\1expect(\2).to/g
+    :%s/\(expect.\+\.to \)==/\1eq/g
   endif
 endfunction
 
