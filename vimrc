@@ -112,6 +112,9 @@ function! ConvertRspec()
     " [statement].should  =>  expect([statement]).to
     :%s/^\(\s*\)\(.\+\)\.should/\1expect(\2).to/ge
 
+    " [statement.stub  =>  allow([statement]).to receive
+    :%s/^\(\s*\)\(.\+\)\.stub/\1allow(\2).to receive/ge
+
     " expect([statement]).to ==  =>  expect([statement]).to eq
     :%s/\(expect.\+\.to \)==/\1eq/ge
 
