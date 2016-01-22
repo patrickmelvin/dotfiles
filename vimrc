@@ -121,6 +121,9 @@ function! ConvertRspec()
     " expect([statement]).to_receive  =>  expect([statement]).to receive
     :%s/\(expect.\+\.to\)_\(receive\)/\1 \2/ge
 
+    " allow([statement]).to receive_chain  =>  allow([statement]).to receive_message_chain
+    :%s/\(allow.\+\.to receive_\)chain/\1message_chain/ge
+
     " expect([statment]).to eq {...}  ==>  expect([statement]).to eq({...})
     :%s/\(expect.\+\.to eq\) \({.\+}\)/\1(\2)/ge
 
