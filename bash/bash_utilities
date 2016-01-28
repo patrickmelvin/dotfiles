@@ -6,3 +6,7 @@ last_migration() {
 nth_migration() {
   vim db/migrate/$(ls db/migrate/ | sort | tail -$1)
 }
+
+find_task {
+  bundle exec rake -T | grep $1
+}
