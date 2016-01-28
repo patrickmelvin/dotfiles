@@ -1,0 +1,8 @@
+# Open latest migration file
+last_migration() {
+  vim db/migrate/$(ls db/migrate/ | sort | tail -1)
+}
+
+nth_migration() {
+  vim db/migrate/$(ls db/migrate/ | sort | tail -$1)
+}
