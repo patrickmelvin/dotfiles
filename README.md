@@ -38,6 +38,7 @@ Plugins
 
 ### Code Completion
 
+* [auto-pairs](https://github.com/jiangmiao/auto-pairs) - Automatically create brackets and quotes in matching pairs.
 * [vim-endwise](https://github.com/tpope/vim-endwise) - Wisely add "end" in ruby, endfunction/endif/more in vim script, etc.
 * [vim-snippets](https://github.com/honza/vim-snippets.git) - A repository for snippets of various languages.
 * [UltiSnips](https://github.com/SirVer/ultisnips.git) - Syntax completion for vim.
@@ -55,9 +56,11 @@ Plugins
 
 ### Misc
 
+* [vim-bundler](https://github.com/tpope/vim-bundler) - Bundler wrapper for vim
 * [tcomment_vim](https://github.com/tomtom/tcomment_vim) - An extensible & universal comment vim-plugin that also handles embedded filetypes.
 * [vim-fugitive](https://github.com/tpope/vim-fugitive.git) - Vim-accessible git wrapper.
 * [vim-i18n](https://github.com/stefanoverna/vim-i18n.git) - Create i18n translations with a function call.
+* [vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides) - Guideline for levels of indentation
 * [vim-rspec](https://github.com/thoughtbot/vim-rspec) - Run Rspec specs from Vim.
 * [delimitMate](https://github.com/raimondi/delimitmate.git) - Quoting/parenthesizing plugin.
 * [Syntastic](https://github.com/scrooloose/syntastic) - Syntax checking hacks for vim.
