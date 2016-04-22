@@ -110,8 +110,8 @@ endfunction
 function! ConvertRspec()
   if(&filetype == 'ruby')
     " it { should == ... } => it { is_expected.to eq(...) }
-    :%s/^\(\s*it\s\={\s\=\)should == \(.\+\)\(\s*}\)/\1is_expected.to eq(\2)\3/ge
-    :%s/^\(\s*it\s\={\s\=\)should/\1is_expected.to/ge
+    :%s/^\(\s*it\.*{\s\=\)should == \(.\+\)\(\s*}\)/\1is_expected.to eq(\2)\3/ge
+    :%s/^\(\s*it\.*{\s\=\)should/\1is_expected.to/ge
 
     " [statement].should  =>  expect([statement]).to
     :%s/^\(\s*\)\(.\+\)\.should/\1expect(\2).to/ge
