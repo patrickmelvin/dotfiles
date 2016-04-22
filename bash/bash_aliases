@@ -94,7 +94,7 @@ alias l='ls -CF'
 # search functions
 alias findme='grep -nir --exclude=\*.svn\* --exclude=\*.swp'
 alias whouses='grep -lir --exclude=\*.svn\* --exclude=\*.swp'
-alias gwologs='grep -ir --exclude=*.log'
+alias gwologs='grep -ir --exclude=\*.log --exclude=\*.workspace.xml'
 alias findfile='find . -iname'
 alias inspect='du -csh'
 alias fsearch='git ls-files | grep'
