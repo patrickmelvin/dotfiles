@@ -68,5 +68,6 @@ Plugins
 
 ### Navigation
 
+* [Ack](https://github.com/mileszs/ack.vim) - Run ack from vim
 * [ctrl-p](https://github.com/kien/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder.
 * [NerdTREE](https://github.com/scrooloose/nerdtree) - A tree explorer plugin for vim.
