@@ -63,6 +63,9 @@ set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
 
+" Set default options for :Ack
+let g:ack_default_options = " -i -s --ignore-file=ext:log"
+
 " Set wrapping on gitcommit messages to 72 characters
 au Filetype gitcommit set tw=72
 
