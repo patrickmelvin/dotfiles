@@ -1,0 +1,6 @@
+# Ignore case
+--ignore-case
+
+# Ignore filetypes
+--ignore-file=ext:log
+--ignore-file=ext:cache

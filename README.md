@@ -19,6 +19,7 @@ Usage
 * `$ ln -nfs ~/dotfiles/bash_profile .bash_profile`
 * `$ ln -nfs ~/dotfiles/bash .bash`
 * `$ ln -nfs ~/dotfiles/gitconfig .gitconfig`
+* `$ ln -nfs ~/dotfiles/ackrc .ackrc`
 
 ## Install Plugins
 
