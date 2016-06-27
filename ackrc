@@ -4,3 +4,4 @@
 # Ignore filetypes
 --ignore-file=ext:log
 --ignore-file=ext:cache
+--ignore-file=ext:sql
