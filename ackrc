@@ -5,3 +5,9 @@
 --ignore-file=ext:log
 --ignore-file=ext:cache
 --ignore-file=ext:sql
+
+# Ignore directories
+--ignore-dir=assets/
+--ignore-dir=Cache/
+--ignore-dir=coverage/
+--ignore-dir=node_modules/
