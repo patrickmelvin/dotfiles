@@ -5,6 +5,7 @@
 --ignore-file=ext:log
 --ignore-file=ext:cache
 --ignore-file=ext:sql
+--ignore-file=ext:json
 
 # Ignore directories
 --ignore-dir=assets/
