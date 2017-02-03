@@ -6,9 +6,13 @@
 --ignore-file=ext:cache
 --ignore-file=ext:sql
 --ignore-file=ext:json
+--ignore-file=is:translations.js
 
 # Ignore directories
 --ignore-dir=assets/
 --ignore-dir=Cache/
 --ignore-dir=coverage/
 --ignore-dir=node_modules/
+--ignore-dir=.browser-preferences
+--ignore-dir=log
+--ignore-dir=temp
