@@ -93,6 +93,9 @@ au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Rakefile set filetype=ruby
 au BufNewFile,BufRead Fudgefile set filetype=ruby
 
+" Macros
+let @c='i@@count ||= 1oRails.logger.error("************************************************")yyoRails.logger.error(@@count)po@@count += 1'
+
 function! InsertDebugger()
   if(&filetype == 'ruby')
     :normal orequire 'pry'; binding.pry
