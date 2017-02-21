@@ -24,6 +24,10 @@ if [ -f ~/.bash/sage_aliases ]; then
   . ~/.bash/sage_aliases
 fi
 
+if [ -f ~/.bash/sage_vars ]; then
+  . ~/.bash/sage_vars
+fi
+
 if [ -f ~/.bash/bash_utilities ]; then
   . ~/.bash/bash_utilities
 fi

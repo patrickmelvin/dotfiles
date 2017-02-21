@@ -94,6 +94,7 @@ au BufNewFile,BufRead Rakefile set filetype=ruby
 au BufNewFile,BufRead Fudgefile set filetype=ruby
 
 " Macros
+" Insert class-scoped counter
 let @c='i@@count ||= 1oRails.logger.error("************************************************")yyoRails.logger.error(@@count)po@@count += 1'
 
 function! InsertDebugger()
