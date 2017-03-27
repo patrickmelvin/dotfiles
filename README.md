@@ -20,6 +20,7 @@ Usage
 * `$ ln -nfs ~/dotfiles/bash .bash`
 * `$ ln -nfs ~/dotfiles/gitconfig .gitconfig`
 * `$ ln -nfs ~/dotfiles/ackrc .ackrc`
+* `$ ln -nfs ~/dotfiles/inputrc .inputrc`
 
 ## Install Plugins
 
