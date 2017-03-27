@@ -97,6 +97,16 @@ au BufNewFile,BufRead Fudgefile set filetype=ruby
 " Insert class-scoped counter
 let @c='i@@count ||= 1oRails.logger.error("************************************************")yyoRails.logger.error(@@count)po@@count += 1'
 
+" Autocommand - If the directory the file is in does not exist, create it
+" before writing the file
+function Mkdir()
+  if empty(glob('%:h'))
+    call mkdir(expand('%:h'), 'p')
+  endif
+endfunction
+
+:autocmd BufWritePre * :call Mkdir()
+
 function! InsertDebugger()
   if(&filetype == 'ruby')
     :normal orequire 'pry'; binding.pry
