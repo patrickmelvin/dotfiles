@@ -10,3 +10,7 @@ nth_migration() {
 find_task() {
   bundle exec rake -T | grep $1
 }
+
+run_modified_specs() {
+  bundle exec rspec $(git status -s | grep _spec.rb | cut -b 3-) --tag integration
+}

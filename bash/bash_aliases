@@ -51,6 +51,9 @@ alias basha="vim ~/.bash/bash_aliases"
 alias vimrc="vim ~/.vimrc"
 alias bash_source="source ~/.bash_profile"
 
+# Run rspec on modified tests
+alias rct="run_modified_specs"
+
 # enable autocomplete support for git aliases
 __git_complete g _git_main
 __git_complete ga _git_add
