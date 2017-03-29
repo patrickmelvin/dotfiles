@@ -22,6 +22,7 @@ Usage
 * `$ ln -nfs ~/dotfiles/ackrc .ackrc`
 * `$ ln -nfs ~/dotfiles/inputrc .inputrc`
 * `$ ln -nfs ~/dotfiles/iterm2_shell_integration.bash .iterm2_shell_integration.bash`
+* `$ ln -nfs ~/dotfiles/pryrc .pryrc`
 
 ## Install Plugins
 
