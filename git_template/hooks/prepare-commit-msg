@@ -1,0 +1,13 @@
+#!/bin/sh
+exec < /dev/tty
+echo "Skip CI?"
+select yn in "Yes" "No"
+do
+  case ${yn} in
+    "Yes")
+      echo "[skip ci]" >> $1
+      break;;
+    "No")
+      break;;
+  esac
+done
