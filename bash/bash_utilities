@@ -14,3 +14,7 @@ find_task() {
 run_modified_specs() {
   bundle exec rspec $(git status -s | grep _spec.rb | cut -b 3-) --tag integration
 }
+
+git_diff_relative() {
+  git diff --no-prefix --src-prefix=$(git rev-parse --show-cdup) --dst-prefix=$(git rev-parse --show-cdup)
+}
