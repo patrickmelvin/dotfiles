@@ -36,6 +36,10 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
+if [ -f ~/.iterm2_shell_integration.bash ]; then
+  . ~/.iterm2_shell_integration.bash
+fi
+
 function github {
   branch="$(git rev-parse --abbrev-ref HEAD)"
     url="$(git config --get remote.origin.url)"

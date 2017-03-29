@@ -21,6 +21,7 @@ Usage
 * `$ ln -nfs ~/dotfiles/gitconfig .gitconfig`
 * `$ ln -nfs ~/dotfiles/ackrc .ackrc`
 * `$ ln -nfs ~/dotfiles/inputrc .inputrc`
+* `$ ln -nfs ~/dotfiles/iterm2_shell_integration.bash .iterm2_shell_integration.bash`
 
 ## Install Plugins
 
