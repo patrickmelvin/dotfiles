@@ -43,7 +43,6 @@ set noswapfile
 
 set pastetoggle=<F2>
 
-set mouse=a                       " Enable mouse input
 set clipboard+=unnamed           " Use system clipboard
 noremap ; :
 noremap j gj
