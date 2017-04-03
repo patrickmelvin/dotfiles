@@ -16,5 +16,5 @@ run_modified_specs() {
 }
 
 git_diff_relative() {
-  git diff --no-prefix --src-prefix=$(git rev-parse --show-cdup) --dst-prefix=$(git rev-parse --show-cdup)
+  git diff --no-prefix --src-prefix=$(git rev-parse --show-cdup) --dst-prefix=$(git rev-parse --show-cdup) $@
 }
