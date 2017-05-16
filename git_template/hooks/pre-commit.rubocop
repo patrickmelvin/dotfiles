@@ -1,0 +1,70 @@
+#!/usr/bin/env ruby
+
+require 'rubocop'
+
+module DirtyCop
+  extend self # In your face, style guide!
+
+  def bury_evidence?(file, line)
+    !report_offense_at?(file, line)
+  end
+
+  def uncovered_targets
+    @files
+  end
+
+  def process_bribe
+    @files = `git diff --staged --name-only --diff-filter=d`.lines. map(&:chomp). grep(/\.rb|\.rake$/). map { |file| File.absolute_path(file) }
+    @line_filter = begin
+      result = {}
+
+      @files.each do |file|
+        ranges = `git diff -p -U0 HEAD #{file}`.lines.grep(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@/) { $1.to_i...($1.to_i + ($2 || 1).to_i) }.reverse
+        mask = Array.new(ranges.first.end)
+
+        ranges.each do |range|
+          range.each do |line|
+            mask[line] = true
+          end
+        end
+
+        result[file] = mask
+      end
+
+      result
+    end
+  end
+
+  private
+
+  def report_offense_at?(file, line)
+    !@line_filter || @line_filter.fetch(file)[line]
+  end
+end
+
+module RuboCop
+  class TargetFinder
+    alias find_unpatched find
+
+    def find(args)
+      replacement = DirtyCop.uncovered_targets
+      return replacement if replacement
+
+      find_unpatched(args)
+    end
+  end
+
+  class Runner
+    alias inspect_file_unpatched inspect_file
+
+    def inspect_file(file)
+      offenses, updated = inspect_file_unpatched(file)
+      offenses = offenses.reject { |o| DirtyCop.bury_evidence?(file.path, o.line) }
+      [offenses, updated]
+    end
+  end
+end
+
+if DirtyCop.process_bribe.any?
+  exit RuboCop::CLI.new.run
+end

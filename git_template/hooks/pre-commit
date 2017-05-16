@@ -1,13 +1,22 @@
-#!/bin/sh
+#!/bin/bash
 #
-# A hook script to verify that the commit contains no instances of
-# binding.pry or debugger
+# author: orefalo
+hookname=`basename $0`
 
-args='(binding.pry|debugger|<<<<<<<|=======|>>>>>>>|fdescribe)'
+FILE=`mktemp`
+trap 'rm -f $FILE' EXIT
+cat - > $FILE
 
-git diff --cached --name-only | \
-  GREP_COLOR='4;5;37;41' xargs grep --color --with-filename -n -E $args && \
-  echo 'COMMIT REJECTED' && \
-  exit 1
-exit 0
+for hook in $GIT_DIR/hooks/$hookname.*
+do
+    if test -x "$hook"; then
+       echo $hook
+        cat $FILE | $hook "$@"
+        status=$?
 
+        if test $status -ne 0; then
+            echo Hook $hook failed with error code $status
+            exit $status
+        fi
+    fi
+done
