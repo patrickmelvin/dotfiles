@@ -6,6 +6,7 @@
 [alias]
   st = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	up = pull --rebase --autostash
 [color]
   branch = auto
   diff = auto
