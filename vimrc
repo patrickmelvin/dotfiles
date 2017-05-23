@@ -34,6 +34,7 @@ set hidden                        " Unsaved changes to buffer. :ls to see buffer
 set autoindent
 
 set wrap                          " Turn on line wrapping.
+:au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>120v.\+', -1) " Highlight error if line over 120 characters
 
 " Do I want to keep these? Or should I let vim handle backups?
 set nobackup
