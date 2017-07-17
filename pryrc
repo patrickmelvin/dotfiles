@@ -2,6 +2,19 @@ Pry::Commands.block_command "showlog", "Print DB queries into the terminal via t
   ActiveRecord::Base.logger = Logger.new(STDOUT)
 end
 
+def sql_stacktrace(sql_regex, printout = nil)
+  ActiveSupport::Notifications.subscribe("sql.active_record") do |_, _, _, _, details|
+    if details[:sql] =~ /#{sql_regex}/
+      if printout
+        puts printout
+      else
+        puts caller(15).join("\n")
+        puts "*" * 50
+      end
+    end
+  end
+end
+
 # Usage time(100) { some_method }
 def time(repetitions = 100, &block)
   require 'benchmark'
