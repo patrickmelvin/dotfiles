@@ -18,3 +18,9 @@ run_modified_specs() {
 git_diff_relative() {
   git diff --no-prefix --src-prefix=$(git rev-parse --show-cdup) --dst-prefix=$(git rev-parse --show-cdup) $@
 }
+
+# Require renogen
+rgen() {
+  renogen new $1
+  vim change_log/next/$1.yml
+}
