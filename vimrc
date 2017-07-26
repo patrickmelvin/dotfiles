@@ -1,5 +1,4 @@
 set nocompatible              " Must come first because it changes other options.
-set nocp
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -18,6 +17,7 @@ set t_Co=256
 set background=dark
 colorscheme gruvbox
 
+set ruler                         " Display cursor position in buffer
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 set incsearch                     " Show match when typing
@@ -99,7 +99,7 @@ let @c='i@@count ||= 1oRails.logger.error("************************************
 
 " Autocommand - If the directory the file is in does not exist, create it
 " before writing the file
-function Mkdir()
+function! Mkdir()
   if empty(glob('%:h'))
     call mkdir(expand('%:h'), 'p')
   endif
@@ -122,38 +122,6 @@ function! s:DiffWithSaved()
   vnew | r # | normal! 1Gdd
   diffthis
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-
-function! ConvertRspec()
-  if(&filetype == 'ruby')
-    " it { should == ... } => it { is_expected.to eq(...) }
-    :%s/^\(\s*it.*{\s\=\)should == \(.\+\)\(\s*}\)/\1is_expected.to eq(\2)\3/ge
-    :%s/^\(\s*it.*{\s\=\)should/\1is_expected.to/ge
-
-    " [statement].should  =>  expect([statement]).to
-    :%s/^\(\s*\)\(.\+\)\.should/\1expect(\2).to/ge
-
-    " [statement.stub  =>  allow([statement]).to receive
-    :%s/^\(\s*\)\(.\+\)\.stub/\1allow(\2).to receive/ge
-
-    " expect([statement]).to == ...  =>  expect([statement]).to eq(...)
-    :%s/\(expect.\+\.to \)== \(.\+\)/\1eq(\2)/ge
-
-    " expect([statement]).to_receive  =>  expect([statement]).to receive
-    :%s/\(expect.\+\.to\)_\(receive\)/\1 \2/ge
-
-    " allow([statement]).to receive_chain  =>  allow([statement]).to receive_message_chain
-    :%s/\(allow.\+\.to receive_\)chain/\1message_chain/ge
-
-    " expect([statment]).to eq {...}  ==>  expect([statement]).to eq({...})
-    :%s/\(expect.\+\.to eq\) \({.\+}\)/\1(\2)/ge
-
-    " expect[statement].any_instance  =>  expect_any_instance_of[statement]
-    :%s/\(expect\)\(.\+\).any_instance\(.\+\)/\1_any_instance_of\2\3/ge
-
-    " allow[statement].any_instance  =>  allow_any_instance_of[statement]
-    :%s/\(allow\)\(.\+\).any_instance\(.\+\)/\1_any_instance_of\2\3/ge
-  endif
 endfunction
 
 com! DiffSaved call s:DiffWithSaved()
