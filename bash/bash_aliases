@@ -58,7 +58,7 @@ alias bash_source="source ~/.bash_profile"
 alias rct="run_modified_specs"
 
 # enable autocomplete support for git aliases
-__git_complete g _git_main
+__git_complete g __git_main
 __git_complete ga _git_add
 __git_complete gc _git_commit
 __git_complete go _git_checkout
