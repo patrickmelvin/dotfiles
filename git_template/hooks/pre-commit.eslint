@@ -1,0 +1,1 @@
+git status | grep '.js' | xargs ./`git rev-parse --show-cdup`/ui/node_modules/.bin/eslint
