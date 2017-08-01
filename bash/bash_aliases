@@ -19,7 +19,6 @@ alias ggo="git push origin"
 alias gr="git remote -v"
 alias rug="git stash"
 alias nuke="git clean -f"
-alias gitgud="git rebase"
 alias rm_merged_branches="git branch -D $(git branch --merged)"
 alias b='bundle'
 alias be='bundle exec'
@@ -67,6 +66,7 @@ __git_complete gd _git_diff
 __git_complete gf _git_fetch
 __git_complete gg _git_push
 __git_complete ggo _git_push
+__git_complete gud _git_rebase
 
 # Open git readme files if they exist in browser
 if [ -e README.md ]
