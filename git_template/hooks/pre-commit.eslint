@@ -1,4 +1,4 @@
 if [[ $SKIP_LINT ]]; then
   exit 0;
 fi
-git status | grep '.js' | xargs ./`git rev-parse --show-cdup`/ui/node_modules/.bin/eslint
+git diff --name-only --cached | grep '\.js' | xargs ./`git rev-parse --show-cdup`/ui/node_modules/.bin/eslint
