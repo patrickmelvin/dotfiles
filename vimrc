@@ -45,6 +45,7 @@ set noswapfile
 set pastetoggle=<F2>
 
 set clipboard+=unnamed           " Use system clipboard
+" set viminfo='100,<1000,s100,h
 noremap ; :
 noremap j gj
 noremap k gk
