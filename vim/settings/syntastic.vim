@@ -4,5 +4,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 let g:syntastic_always_populate_loc_list = 1
 
-:nmap [c :lprevious<enter>
-:nmap ]c :lnext<enter>
+:nmap ññ :lprevious<enter>
+:nmap çç :lnext<enter>
+:nmap ñç :lopen<enter>
