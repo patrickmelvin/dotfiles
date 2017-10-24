@@ -98,6 +98,10 @@ au BufNewFile,BufRead Fudgefile set filetype=ruby
 " Insert class-scoped counter
 let @c='i@@count ||= 1oRails.logger.error("************************************************")yyoRails.logger.error(@@count)po@@count += 1'
 
+function! FrozenStringLiteral()
+  normal! ggi# frozen_string_literal: true
+endfunction
+
 " Autocommand - If the directory the file is in does not exist, create it
 " before writing the file
 function! Mkdir()
