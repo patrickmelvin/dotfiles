@@ -1,4 +1,8 @@
 # Open latest migration file
+rm_last_migration() {
+  rm db/migrate/$(ls db/migrate | sort | tail -1)
+}
+
 last_migration() {
   vim db/migrate/$(ls db/migrate/ | sort | tail -1)
 }
