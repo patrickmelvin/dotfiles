@@ -94,41 +94,14 @@ au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Rakefile set filetype=ruby
 au BufNewFile,BufRead Fudgefile set filetype=ruby
 
+" Open file in the directory of the current file
+map <leader>e :e <C-R>=expand("%p:h") . "/" <CR>
+map <leader>t :tabe <C-R>=expand("%p:h") . "/" <CR>
+map <leader>s :split <C-R>=expand("%p:h") . "/" <CR>
+
 " Macros
 " Insert class-scoped counter
 let @c='i@@count ||= 1oRails.logger.error("************************************************")yyoRails.logger.error(@@count)po@@count += 1'
 
-function! FrozenStringLiteral()
-  normal! ggi# frozen_string_literal: true
-endfunction
-
-" Autocommand - If the directory the file is in does not exist, create it
-" before writing the file
-function! Mkdir()
-  if empty(glob('%:h'))
-    call mkdir(expand('%:h'), 'p')
-  endif
-endfunction
-
-:autocmd BufWritePre * :call Mkdir()
-
-function! InsertDebugger()
-  if(&filetype == 'ruby')
-    :normal orequire 'pry'; binding.pry
-  else
-    :normal odebugger;
-  endif
-  :normal ==
-endfunction
-
-function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-
-com! DiffSaved call s:DiffWithSaved()
-
+so ~/.vim/functions.vim
 so ~/.vim/settings.vim
