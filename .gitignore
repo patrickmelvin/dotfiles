@@ -2,3 +2,4 @@ bash/sage_aliases
 bash/sage_vars
 bundle/
 vim/.netrwhist
+.DS_STORE
