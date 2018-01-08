@@ -90,14 +90,16 @@ set timeoutlen=2000
 au BufRead,BufNewFile *.ui set filetype=ruby
 au BufRead,BufNewFile *.mustache set filetype=javascript
 au BufNewFile,BufRead *.ctp set filetype=html
+au BufNewFile,BufRead *.rake set filetype=ruby
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Rakefile set filetype=ruby
 au BufNewFile,BufRead Fudgefile set filetype=ruby
 
 " Open file in the directory of the current file
-map <leader>e :e <C-R>=expand("%p:h") . "/" <CR>
-map <leader>t :tabe <C-R>=expand("%p:h") . "/" <CR>
-map <leader>s :split <C-R>=expand("%p:h") . "/" <CR>
+map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>s :split <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>v :vsplit <C-R>=expand("%:p:h") . "/" <CR>
 
 " Macros
 " Insert class-scoped counter
