@@ -23,6 +23,11 @@ git_diff_relative() {
   git diff --no-prefix --src-prefix=$(git rev-parse --show-cdup) --dst-prefix=$(git rev-parse --show-cdup) $@
 }
 
+remove_prys() {
+  sed -i -- "/require 'pry'; binding.pry/d" `git diff --name-only`
+  sed -i -- 's/binding.pry//g' `git diff --name-only`
+}
+
 # Require renogen
 rgen() {
   renogen new $1
