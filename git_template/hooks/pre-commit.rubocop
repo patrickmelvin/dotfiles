@@ -1,6 +1,11 @@
 #!/usr/bin/env ruby
 
-require 'rubocop'
+begin
+  require 'rubocop'
+rescue LoadError
+  puts 'Rubocop not in load path. Skip Rubocop check'
+  exit 0
+end
 
 module DirtyCop
   extend self # In your face, style guide!
