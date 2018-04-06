@@ -1,4 +1,4 @@
-if [[ $SKIP_LINT ]]; then
+if [ $SKIP_LINT ] || [ ! -f ./`git rev-parse --show-cdup`/ui/node_modules/.bin/eslint ]; then
   exit 0;
 fi
 git diff --name-only --cached | grep '\.js' | xargs ./`git rev-parse --show-cdup`/ui/node_modules/.bin/eslint
