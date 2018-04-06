@@ -32,6 +32,7 @@ alias rollback="bundle exec rake db:rollback"
 
 # Tasks which help fix things
 alias panacea="bundle update"
+alias burnitall='rm -rf node_modules; npm install'
 
 # Fudge
 alias fudge="bundle exec fudge build"
@@ -42,7 +43,7 @@ alias fudgepp="bundle exec fudge build | fpp"
 alias ..="cd .."
 alias ...="cd ../.."
 alias dot="cd ~/dotfiles"
-alias dev="cd ~/development"
+alias dev="cd ~/dev"
 alias til="cd ~/til"
 
 # Bash & Vim
