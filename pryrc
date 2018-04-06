@@ -2,6 +2,10 @@ Pry::Commands.block_command "showlog", "Print DB queries into the terminal via t
   ActiveRecord::Base.logger = Logger.new(STDOUT)
 end
 
+Pry::Commands.block_command 'hidelog', 'Stop printing ActiveRecord queies into the terminal' do
+  ActiveRecord::Base.logger = nil
+end
+
 def sql_stacktrace(sql_regex, printout = nil)
   ActiveSupport::Notifications.subscribe("sql.active_record") do |_, _, _, _, details|
     if details[:sql] =~ /#{sql_regex}/
