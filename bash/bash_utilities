@@ -34,6 +34,10 @@ rgen() {
   vim change_log/next/$1.yml
 }
 
+gsu() {
+  git branch --set-upstream-to=origin/`git branch | grep \* | cut -d ' ' -f2-` `git branch | grep \* | cut -d ' ' -f2-`
+}
+
 ansi_colours() {
   for attr in $(seq 0 1); do
     for fg in $(seq 30 37); do
