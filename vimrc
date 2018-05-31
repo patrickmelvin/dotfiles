@@ -87,6 +87,7 @@ set timeoutlen=2000
 au BufRead,BufNewFile *.ui set filetype=ruby
 au BufRead,BufNewFile *.mustache set filetype=javascript
 au BufNewFile,BufRead *.ctp set filetype=html
+au BufNewFile,BufRead *.snap set filetype=html
 au BufNewFile,BufRead *.rake set filetype=ruby
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Rakefile set filetype=ruby
