@@ -67,6 +67,7 @@ __git_complete gf _git_fetch
 __git_complete gg _git_push
 __git_complete ggo _git_push
 __git_complete gud _git_rebase
+__git_complete remove_branches _git_branch
 
 # Open git readme files if they exist in browser
 if [ -e README.md ]

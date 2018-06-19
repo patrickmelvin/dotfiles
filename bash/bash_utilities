@@ -38,6 +38,15 @@ gsu() {
   git branch --set-upstream-to=origin/`git branch | grep \* | cut -d ' ' -f2-` `git branch | grep \* | cut -d ' ' -f2-`
 }
 
+remove_branches() {
+  remove_stashes `echo "$@" | sed 's/ /|/g'`
+  git branch -D "$@"
+}
+
+remove_stashes() {
+  git stash list | grep -E $1 | awk '{print substr($1, 1, length($1)-1)}' | sort -r -t { -k 2 -g |  while read -r r; do git stash drop "$r"; done
+}
+
 ansi_colours() {
   for attr in $(seq 0 1); do
     for fg in $(seq 30 37); do
