@@ -24,8 +24,8 @@ git_diff_relative() {
 }
 
 remove_prys() {
-  sed -i -- "/require 'pry'; binding.pry/d" `git diff --name-only`
-  sed -i -- 's/binding.pry//g' `git diff --name-only`
+  sed -i '' "/require 'pry'; binding.pry/d" `git diff --name-only`
+  sed -i '' '/binding.pry/d' `git diff --name-only`
 }
 
 # Require renogen
