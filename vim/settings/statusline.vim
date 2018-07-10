@@ -1,2 +1,2 @@
 " set statusline+=%{fugitive#statusline()}
-set statusline=%{fugitive#statusline()}\ %f\ %cC
+set statusline=%{fugitive#statusline()}\ %f\ %cC\ %P
