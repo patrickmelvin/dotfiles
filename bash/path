@@ -11,3 +11,7 @@ export CXX=/usr/bin/g++
 export JAVA_HOME=~/java_home
 
 export PATH=/usr/local/Cellar/vim/8.0.0512/bin:$PATH
+
+if [ -f ~/.bash/sage_path ]; then
+  . ~/.bash/sage_path
+fi
