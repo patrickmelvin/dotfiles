@@ -19,6 +19,19 @@ def sql_stacktrace(sql_regex, printout = nil)
   end
 end
 
+def print_hooks(kind)
+  _process_action_callbacks.map do |c|
+    if c.kind == kind && !c.filter.is_a?(Integer)
+      {
+        c.filter => {
+          if: c.instance_variable_get(:@if),
+          unless: c.instance_variable_get(:@unless)
+        }
+      }
+    end
+  end.compact
+end
+
 # Usage time(100) { some_method }
 def time(repetitions = 100, &block)
   require 'benchmark'
