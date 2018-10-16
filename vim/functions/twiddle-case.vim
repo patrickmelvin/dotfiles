@@ -10,7 +10,6 @@ function! TwiddleCase(str)
 endfunction
 
 function! ToggleSnakeCamel(str)
-  echo a:str
   if a:str =~ '_'
     return substitute(a:str,'\([a-z]\?\)_\([a-z]\)','\1\u\2', 'g')
   endif
