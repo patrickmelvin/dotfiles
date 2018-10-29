@@ -1,6 +1,6 @@
 " Strip trailing whitespace on save
 function! <SID>StripTrailingWhitespace()
-  let blacklist=['coffee']
+  let blacklist=['coffee', 'erb', 'html']
   let l = line(".")
   let c = line(".")
   if index(blacklist, &ft) < 0
