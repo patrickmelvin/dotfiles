@@ -40,3 +40,13 @@ end
 
 require "awesome_print"
 AwesomePrint.pry!
+
+CodeRay.scan("example", :ruby).term
+module CodeRay
+  module Encoders
+    class Terminal < Encoder
+      TOKEN_COLORS[:string][:self] = "\e[1;31m"
+    end
+  end
+end
+
