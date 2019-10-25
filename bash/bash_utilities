@@ -1,31 +1,39 @@
-# Open latest migration file
+# Remove latest migration file in engine
 rm_last_migration() {
   rm db/migrate/$(ls db/migrate | sort | tail -1)
 }
 
+# Open latest migration file in engine
 last_migration() {
   vim db/migrate/$(ls db/migrate/ | sort | tail -1)
 }
 
+# Open nth latest migration fine in engine
+# Usage: `nth_migration 3` to open the third-last migration
 nth_migration() {
   vim db/migrate/$(ls db/migrate/ | sort | tail -$1 | head -1)
 }
 
+# Find rake tasks whose names contain the argument string
+# Usage: `find_task migrate` to find task that contain the word migrate
 find_task() {
   bundle exec rake -T | grep $1
 }
 
+# Run only the rspec files that have been changed
 run_modified_specs() {
-  bundle exec rspec $(git status -s | grep _spec.rb | cut -b 3-) --tag integration
+  bundle exec rspec $(git status -s -- *_spec.rb | cut -b 3-) --tag integration
 }
 
+# Return a diff where the filepaths are all relative to current directory
 git_diff_relative() {
   git diff --no-prefix --src-prefix=$(git rev-parse --show-cdup) --dst-prefix=$(git rev-parse --show-cdup) --color-moved=plain $@
 }
 
+# Remove prys from all modified files
 remove_prys() {
-  sed -i '' "/require 'pry'; binding.pry/d" `git diff --name-only`
-  sed -i '' '/binding.pry/d' `git diff --name-only`
+  sed -i '' "/require 'pry'; binding.pry/d" `git diff HEAD --name-only`
+  sed -i '' '/binding.pry/d' `git diff HEAD --name-only`
 }
 
 # Require renogen
@@ -34,15 +42,19 @@ rgen() {
   vim change_log/next/$1.yml
 }
 
+# Git set upstream to current branchname on the origin remote
 gsu() {
   git branch --set-upstream-to=origin/`git branch | grep \* | cut -d ' ' -f2-` `git branch | grep \* | cut -d ' ' -f2-`
 }
 
+# Remove branches that follow the pattern in the argument string
+# Usage: `remove_branches release-mergeback` to remove `branches which contain "release-mergeback" in their name
 remove_branches() {
-  remove_stashes `echo "$@" | sed 's/ /|/g'`
-  git branch -D "$@"
+  git branch | grep -E $1 | xargs git branch -D
 }
 
+# Remove  stashes who's stash messages follow a pattern
+# Usage: `remove_stashes TCKT-01` to remove stashes which have "TCKT-01" in their stash message
 remove_stashes() {
   git stash list | grep -E $1 | awk '{print substr($1, 1, length($1)-1)}' | sort -r -t { -k 2 -g |  while read -r r; do git stash drop "$r"; done
 }
