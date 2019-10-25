@@ -59,6 +59,24 @@ remove_stashes() {
   git stash list | grep -E $1 | awk '{print substr($1, 1, length($1)-1)}' | sort -r -t { -k 2 -g |  while read -r r; do git stash drop "$r"; done
 }
 
+# Git grep and sort the results by date created, earliest to latest
+# Usage: `gg_by_create search_term`
+# Could take a while if there's a lot of files to parse
+gg_by_create() {
+  git grep --name-only $1 | while read filename; do
+    echo "$(git log --format="%ai" -- "$filename" | tail -1) $filename"
+  done | sort
+}
+
+# Git grep and sort the results by date modified, earliest to latest
+# Usage: `gg_by_mod search_term`
+# Could take a while if there's a lot of files to parse
+gg_by_mod() {
+  git grep --name-only $1 | while read filename; do
+    echo "$(git log -1 --format="%ai" -- "$filename") $filename"
+  done | sort
+}
+
 ansi_colours() {
   for attr in $(seq 0 1); do
     for fg in $(seq 30 37); do
