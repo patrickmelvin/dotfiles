@@ -77,6 +77,11 @@ gg_by_mod() {
   done | sort
 }
 
+# Remove all merged branches from local machine except master
+git_clean() {
+  git branch --merged | egrep -v "(^\*|master)" | xargs git branch -D
+}
+
 ansi_colours() {
   for attr in $(seq 0 1); do
     for fg in $(seq 30 37); do
@@ -86,4 +91,17 @@ ansi_colours() {
       echo
     done
   done
+}
+
+new_mtd_user() {
+{
+  curl -X POST \
+    https://test-api.service.hmrc.gov.uk/create-test-user/organisations \
+    -H 'Accept: application/vnd.hmrc.1.0+json' \
+    -H 'Authorization: Bearer 1d634b850233cf92f657e2249905c' \
+    -H 'Cache-Control: no-cache' \
+    -H 'Content-Type: application/json' \
+    -H 'Postman-Token: 600bb611-b77e-4cfc-b407-bd0d2abbbbfc' \
+    -d '{ "serviceNames": [ "submit-vat-returns", "mtd-vat"]}'
+}
 }
