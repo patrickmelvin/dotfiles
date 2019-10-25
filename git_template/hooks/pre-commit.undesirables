@@ -3,6 +3,11 @@
 # A hook script to verify that the commit contains no instances of
 # binding.pry or debugger
 
+
+if [ $SKIP_UNDESIRABLES ]; then
+  exit 0;
+fi
+
 args='(binding.pry|debugger|<<<<<<<|=======|>>>>>>>|fdescribe)'
 
 git diff --cached --name-only | \
