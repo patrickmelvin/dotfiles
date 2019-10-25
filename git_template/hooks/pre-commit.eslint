@@ -1,10 +1,13 @@
-if [ $SKIP_LINT ]; then
+#!/bin/sh
+#
+# Pre-commit hook to run eslint on changed files and fail if violations are found
+# The path to eslint may need to be changed. I have found that sometimes custom config
+# is ignored if the file is not executed directly from node_modules/.bin
+# Skip by setting SKIP_ESLINT=true
+
+eslintPath='/node_modules/.bin/eslint'
+
+if [ $SKIP_ESLINT ] || [ ! -f ./`git rev-parse --show-cdup`$eslintPath ]; then
   exit 0;
 fi
-
-if [ ! -f ./`git rev-parse --show-cdup`/ui/node_modules/.bin/eslint ]; then
-  echo 'Cannot find eslint binary. Skipping check...';
-  exit 0;
-fi
-
-git diff --name-only --cached | grep '\.js' | xargs ./`git rev-parse --show-cdup`/ui/node_modules/.bin/eslint
+git diff --name-only --cached '*.js' | xargs ./`git rev-parse --show-cdup`$eslintPath
